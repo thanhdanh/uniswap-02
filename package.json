@@ -1,0 +1,23 @@
+{
+  "name": "uniswap-02",
+  "version": "1.0.0",
+  "description": "Uniswap project",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhdanh/uniswap-02.git"
+  },
+  "keywords": [],
+  "author": "danhvt0109@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thanhdanh/uniswap-02/issues"
+  },
+  "homepage": "https://github.com/thanhdanh/uniswap-02#readme"
+}
