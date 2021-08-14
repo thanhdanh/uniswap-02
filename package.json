@@ -6,6 +6,9 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/thanhdanh/uniswap-02/issues"
   },
-  "homepage": "https://github.com/thanhdanh/uniswap-02#readme"
+  "homepage": "https://github.com/thanhdanh/uniswap-02#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.4.3"
+  }
 }
