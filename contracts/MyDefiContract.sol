@@ -16,7 +16,7 @@ interface IERC20 {
     function approve(address spender, uint value) external returns (bool);
 }
 
-abstract contract MyDefiContract {
+contract MyDefiContract {
     using SafeMath for uint;
     
     IUniswap uniswap;
