@@ -41,7 +41,7 @@ contract MyDefiContract {
         IERC20(token).approve(address(uniswap), amountIn);
         uint[] memory amounts = uniswap.swapTokensForExactETH(
             amountIn, 
-            amountOutMin, 
+            amountOutMin,
             path, 
             address(this), 
             deadline
