@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/thanhdanh/uniswap-02#readme",
   "dependencies": {
+    "@openzeppelin/contracts": "^4.2.0",
     "@truffle/hdwallet-provider": "^1.4.3"
   }
 }

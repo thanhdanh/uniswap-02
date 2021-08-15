@@ -12,6 +12,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useEthers } from "@usedapp/core";
+import AccountInfo from "./AccountInfo";
 import ConnectWalletButton from "./ConnectWalletButton";
 import SwapTokenButton from "./SwapTokenButton";
 
@@ -26,9 +27,10 @@ const Swap = () => {
       background={formBackground}
       p={12}
       rounded={8}
-      maxW={500}
+      maxW={550}
     >
       <Heading mb={8}>Swap</Heading>
+			{account && <AccountInfo account={account} />}
       <form>
         <FormControl id="fromTokenInput">
           <FormLabel htmlFor="fromTokenInput" fontSize="20">
