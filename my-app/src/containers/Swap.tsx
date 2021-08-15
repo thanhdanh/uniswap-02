@@ -9,16 +9,16 @@ import {
   NumberInput,
   NumberInputField,
   NumberInputStepper,
+  Spacer,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { useEthers } from "@usedapp/core";
-import AccountInfo from "./AccountInfo";
-import ConnectWalletButton from "./ConnectWalletButton";
-import SwapTokenButton from "./SwapTokenButton";
+import AccountModal from "components/AccountModal";
+import ConnectWalletButton from "components/ConnectWalletButton";
 
 const Swap = () => {
   const formBackground = useColorModeValue("gray.100", "gray.700");
-  const { activateBrowserWallet, account } = useEthers();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Flex
@@ -29,8 +29,11 @@ const Swap = () => {
       rounded={8}
       maxW={550}
     >
-      <Heading mb={8}>Swap</Heading>
-			{account && <AccountInfo account={account} />}
+      <Flex>
+        <Heading mb={8}>Swap</Heading>
+        <Spacer />
+        <ConnectWalletButton handleOpenModal={onOpen} />
+      </Flex>
       <form>
         <FormControl id="fromTokenInput">
           <FormLabel htmlFor="fromTokenInput" fontSize="20">
@@ -44,18 +47,10 @@ const Swap = () => {
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
-            {!account ? (
-              <ConnectWalletButton
-                handleConnectWallet={() => {
-                  activateBrowserWallet();
-                }}
-              />
-            ) : (
-              <SwapTokenButton />
-            )}
           </InputGroup>
         </FormControl>
       </form>
+      <AccountModal isOpen={isOpen} onClose={onClose} />
     </Flex>
   );
 };

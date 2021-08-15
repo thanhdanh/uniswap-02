@@ -1,7 +1,6 @@
-import React from 'react';
 import { ChakraProvider, extendTheme, ThemeConfig } from "@chakra-ui/react";
-import Swap from './components/Swap';
-import Layout from './components/Layout';
+import Swap from './containers/Swap';
+import Layout from 'components/Layout';
 
 const config : ThemeConfig = {
   initialColorMode: "dark",

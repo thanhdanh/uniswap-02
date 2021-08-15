@@ -2,6 +2,7 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 import "./libraries/Safemath.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 interface IUniswap {
     function WETH() external pure returns (address);
@@ -9,11 +10,9 @@ interface IUniswap {
     function swapTokensForExactETH(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)
         external
         returns (uint[] memory amounts);
-}
-
-interface IERC20 {
-    function transferFrom(address from, address to, uint value) external returns (bool);
-    function approve(address spender, uint value) external returns (bool);
+    
+    function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);
+    function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);
 }
 
 contract MyDefiContract {
