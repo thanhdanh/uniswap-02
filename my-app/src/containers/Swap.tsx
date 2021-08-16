@@ -13,12 +13,18 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useEthers } from "@usedapp/core";
 import AccountModal from "components/AccountModal";
 import ConnectWalletButton from "components/ConnectWalletButton";
+import SwapTokenButton from "components/SwapTokenButton";
+import { useState } from "react";
 
 const Swap = () => {
   const formBackground = useColorModeValue("gray.100", "gray.700");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [amountSwap, setAmountSwap] = useState(0);
+  const handleChange = (event: any) => setAmountSwap(event.target.value)
+  const { account } = useEthers();
 
   return (
     <Flex
@@ -41,12 +47,13 @@ const Swap = () => {
           </FormLabel>
           <InputGroup>
             <NumberInput size="md" variant="filled" defaultValue={15} mr={5}>
-              <NumberInputField />
+              <NumberInputField value={amountSwap} onChange={handleChange} />
               <NumberInputStepper>
                 <NumberIncrementStepper />
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
+            {account && <SwapTokenButton account={account} amountIn={amountSwap} />}
           </InputGroup>
         </FormControl>
       </form>

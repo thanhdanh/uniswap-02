@@ -1,3 +1,4 @@
+import BigNumber from 'bignumber.js';
 import Web3 from 'web3';
 import { provider } from 'web3-core';
 import { Utils } from 'web3-utils';
@@ -18,3 +19,10 @@ export const getWeb3 = (): Web3 => {
 export const getWeb3Utils = (): Utils => {
     return new Web3().utils;
 }
+
+export function scale(input: BigNumber, decimalPlaces: number) {
+    const scalePow = new BigNumber(decimalPlaces.toString());
+    const scaleMul = new BigNumber(10).pow(scalePow);
+    return input.times(scaleMul);
+}
+  
